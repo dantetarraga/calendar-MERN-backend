@@ -11,7 +11,6 @@ export const validateToken = (req, res, next) => {
 
   try {
     const payload = jwt.verify(token, process.env.SECRET_JWT_SEED)
-    console.log(payload)
     req.uid = payload.uid
     req.firstName = payload.firstName
     req.lastName = payload.lastName
