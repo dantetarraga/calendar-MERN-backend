@@ -11,8 +11,10 @@ export const validateToken = (req, res, next) => {
 
   try {
     const payload = jwt.verify(token, process.env.SECRET_JWT_SEED)
+    console.log(payload)
     req.uid = payload.uid
-    req.name = payload.name
+    req.firstName = payload.firstName
+    req.lastName = payload.lastName
   } catch (error) {
     return res.status(401).json({
       ok: false,

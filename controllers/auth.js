@@ -29,7 +29,7 @@ class AuthController {
       })
     }
 
-    const token = await generateToken(user.id, user.firstName)
+    const token = await generateToken(user.id, user.firstName, user.lastName)
 
     return res.status(201).json({
       ok: true,
@@ -61,7 +61,7 @@ class AuthController {
       })
     }
 
-    const token = await generateToken(user.id, user.firstName)
+    const token = await generateToken(user.id, user.firstName, user.lastName)
 
     return res.json({
       ok: true,
@@ -74,14 +74,17 @@ class AuthController {
   }
 
   static async refreshToken (req, res) {
-    const { uid, name } = req
+    const { uid, firstName, lastName } = req
 
-    const token = await generateToken(uid, name)
+    const token = await generateToken(uid, firstName, lastName)
+    const fullName = `${firstName} ${lastName}`
 
     res.json({
       ok: true,
       message: 'Refresh token',
-      token
+      token,
+      fullName,
+      uid
     })
   }
 }
