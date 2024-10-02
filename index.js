@@ -23,7 +23,7 @@ app.use(express.json())
 // Routes
 app.use('/api/auth', authRouter)
 app.use('/api/events', eventsRouter)
-app.use('/api', serviceRouter)
+app.use('/api/service', serviceRouter)
 
 app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'))
