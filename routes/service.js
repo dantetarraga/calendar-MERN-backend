@@ -16,3 +16,5 @@ serviceRouter.get('/', (req, res) => {
     message: 'Service GET'
   })
 })
+
+export default serviceRouter
