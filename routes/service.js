@@ -5,14 +5,18 @@ const serviceRouter = Router()
 serviceRouter.post('/', (req, res) => {
   const data = req.body
 
-  res.json({
+  console.log(data)
+
+  return res.json({
     resp: data,
-    message: 'Service POST'
+    message: 'Service POST',
+    anio: 2024,
+    fuete: 'DTU'
   })
 })
 
 serviceRouter.get('/', (req, res) => {
-  res.json({
+  return res.json({
     message: 'Service GET'
   })
 })
